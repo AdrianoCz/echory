@@ -1,0 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+#root{
+    background-color: #3F3D37;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+nav{
+    height: 5.25rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+.navLogo{
+    width: clamp(7.5rem, 12rem,25vw);
+}
+.navLogo path{
+}
+.userIcon{
+    height: 2.66rem;
+}
