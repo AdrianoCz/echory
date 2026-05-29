@@ -1,17 +1,31 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --search-bar-backgroud: #1D1919;
+    --gen-background: #2c2c2c;
+    --gen-container-background: rgba(25, 25, 25, 0.8);
+    --def-container-border: rgba(255, 255, 255, 0.068);
+    --def-container-background: rgba(37, 37, 37, 0.753);
+    --def-text-color: #ffffff;
+}   
 
-*{
+* {
     padding: 0;
     margin: 0;
 }
-#root{
-    background-color: #3F3D37;
+html{
+    overflow: hidden;
+}
+#root {
+    background-color: var(--gen-background);
     height: 100%;
     min-height: 100vh;
     overflow: hidden;
+    font-family: 'Montserrat';
+    color: white;
 }
-nav{
+
+nav {
     height: 5.25rem;
     background-color: rgba(0, 0, 0, 0.75);
     display: flex;
@@ -19,11 +33,111 @@ nav{
     justify-content: space-between;
     padding: 0 2rem;
 }
-.navLogo{
-    width: clamp(7.5rem, 12rem,25vw);
+
+.navLogo {
+    width: clamp(7.5rem, 12rem, 25vw);
 }
-.navLogo path{
-}
-.userIcon{
+
+.userIcon {
     height: 2.66rem;
+}
+
+.searchBar {
+    border: 1px solid #CAC2AB;
+    width: clamp(5rem, 20vw, 15rem);
+    height: 2.25rem;
+    border-radius: 10rem;
+    background-color: var(--search-bar-backgroud);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.searchIcon {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.75rem;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.genContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 87.5%;
+    width: 90%;
+    background-color: var(--gen-container-background);
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    margin: auto;
+}
+.topHalfContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap ;
+    align-items: center;
+    gap: 2.66rem;
+    margin-top: 2rem;
+}
+.albumCover{
+    height: 16rem;
+    width: 16rem;
+    background-color: purple;
+    background-size: cover;
+}
+.infoElement{
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--def-container-border);
+    background-color: var(--def-container-background);
+    border-radius: 0.66rem;
+}
+.albumName{
+    color: var(--def-text-color);
+}
+#albumName{
+    font-size: 2rem;
+    font-weight: 600;
+}
+#albumAuthor{
+    font-size: 1.25rem;
+    font-weight: 450;
+}
+.ratingContainer{
+    display: flex;
+    align-items: center;    
+    color: white;
+    font-size: 2.25rem;
+    font-weight: 600;
+    gap: 1rem;
+    height: 60px;
+    width: fit-content;
+    border: 2px solid;
+    padding: 0 1.5rem;
+    border-radius: 55rem;
+}
+.nameReviewContainer{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+.reviewNumber{
+    font-weight: 600;
+    font-size: 2.25rem;
+}
+.reviewNumberContainer{
+    text-align: center;
+}
+.reviewInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
