@@ -4,6 +4,7 @@ import './App.css'
 import SVG from "./logo.jsx"
 import userIcon from "/user.png"
 
+
 function AvaliacaoAlbum() {
     const ratingsBorderColor = ["#300a05", "darkred", "red", "#ff7300", "yellow", "greenyellow", "green", "#0084ff", "#ffb700"]
     const ratingsBackgroundColor = ["#974b412f", "#582f2f2f", "#ff43432f", "#f58f3c2f", "#ffff812f", "#c1f86f2f", "#3d803d2f", "#5bb0ff2f", "#ffd05b2f"]
@@ -28,8 +29,9 @@ function AvaliacaoAlbum() {
                         <p id='albumAuthor'>{album.author}</p>
                     </div>
                     <div className="reviewInfo infoElement">
-                        <div className="ratingContainer" style={
-                            {
+                        <div className="ratingContainer" style={    
+                            {   
+                                boxShadow: album.rating == 5 ? "0px 0px 10px 0px #fff3889c" : "none",
                                 borderColor: ratingsBorderColor[ratings.indexOf(ratingRange)],
                                 backgroundColor: ratingsBackgroundColor[ratings.indexOf(ratingRange)]
                             }}>
