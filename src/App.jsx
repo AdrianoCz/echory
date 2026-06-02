@@ -22,7 +22,7 @@ function AvaliacaoAlbum() {
     const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
     const Svg = SVG();
     const { albumId } = useParams()
-    const albums = [{ id: "1", name: "Imaginal Disk", author: "Magdalena Bay", rating: [2, 3], reviewNumber: 123, label: "Mom+pop", releaseDate: "2024-08-23", genre: "Synth Pop" }];
+    const albums = [{ id: "1", name: "Imaginal Disk", author: "Magdalena Bay", rating: [0], reviewNumber: 123, label: "Mom+pop", releaseDate: "2024-08-23", genre: "Synth Pop" }];
     const [album, setAlbum] = useState(albums.filter((album) => album.id == albumId)[0]);
 
     if (album == undefined) {
@@ -30,7 +30,7 @@ function AvaliacaoAlbum() {
     }
 
     const [rating, setRating] = useState(album.rating.length != 0 ? ((album.rating.reduce((a, b) => a + b)) / album.rating.length).toFixed(1) : "NR");
-    const ratingRange = rating == 5 ? 5 : ratings.filter((ratings, i, array) => ratings >= rating && rating < array[i + 1])[0];
+    let ratingRange = rating == 5 ? 5 : rating <5 && rating >= 4.5 ? 4.5 : ratings.filter((ratings, i, array) => i == 8 ? true == true : ratings > rating && rating <= array[i + 1])[0];
     const [personalRating, setPersonalRating] = useState(0)
     const [hasRated, setRated] = useState(false);
 

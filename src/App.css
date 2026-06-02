@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     --search-bar-backgroud: #1D1919;
-    --gen-background: #00021f;
+    --gen-background: #2e2e2e;
     --gen-container-background: rgba(25, 25, 25, 0.8);
     --def-container-border: rgba(255, 255, 255, 0.065);
-    --def-container-background: rgba(29, 29, 29, 0.144);
+    --def-container-background: rgba(29, 29, 29, 0.048);
     --sec-layer-background: rgba(17, 17, 17, 0.5);
     --def-text-color: #ffffff;
     --button-color: #0093D2;
@@ -202,7 +202,7 @@ display: flex;
     fill: white;
 } 
 .star:hover ~ .star path{
-  fill: none;
+  fill:rgba(0, 0, 0, 0);
 }
 .review{
     height: 11.313rem;
