@@ -2,27 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     --search-bar-backgroud: #1D1919;
-    --gen-background: #2c2c2c;
+    --gen-background: #00021f;
     --gen-container-background: rgba(25, 25, 25, 0.8);
-    --def-container-border: rgba(255, 255, 255, 0.068);
-    --def-container-background: rgba(37, 37, 37, 0.753);
+    --def-container-border: rgba(255, 255, 255, 0.065);
+    --def-container-background: rgba(29, 29, 29, 0.144);
+    --sec-layer-background: rgba(17, 17, 17, 0.5);
     --def-text-color: #ffffff;
+    --button-color: #0093D2;
 }   
 
 * {
     padding: 0;
     margin: 0;
 }
-html{
-    overflow: hidden;
+html, 
+body, 
+#root {
+  min-height: 100vh; 
+  margin: 0;
+  padding: 0;
 }
 #root {
     background-color: var(--gen-background);
-    height: 100%;
-    min-height: 100vh;
-    overflow: hidden;
     font-family: 'Montserrat';
     color: white;
+    background-size: cover;
+    background-position: center;
 }
 
 nav {
@@ -32,6 +37,17 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
+    margin-bottom: 1rem;
+}
+
+main{
+min-height: calc(100vh - 5.25rem);
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  overflow: hidden;
 }
 
 .navLogo {
@@ -66,18 +82,18 @@ nav {
     gap: 1rem;
 }
 .genContainer{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    height: 87.5%;
-    width: 90%;
-    background-color: var(--gen-container-background);
-    position: absolute;
-    bottom: 0;
-    left: 1rem;
-    right: 1rem;
-    margin: auto;
+display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  min-height: calc(100vh - 5.25rem);
+  width: 90%;
+  background-color: var(--gen-container-background);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  padding: 2rem 0;
+  backdrop-filter: blur(0.5rem);
 }
 .topHalfContainer{
     display: flex;
@@ -85,7 +101,6 @@ nav {
     flex-wrap: wrap ;
     align-items: center;
     gap: 2.66rem;
-    margin-top: 2rem;
 }
 .albumCover{
     height: 16rem;
@@ -98,6 +113,7 @@ nav {
     border: 1px solid var(--def-container-border);
     background-color: var(--def-container-background);
     border-radius: 0.66rem;
+    backdrop-filter: blur(1px);
 }
 .albumName{
     color: var(--def-text-color);
@@ -140,4 +156,81 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+}
+.genInfoContainer{
+    min-width: 25ch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    gap: 0.5rem
+}
+.genInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.125rem;
+    width: 90%;
+}
+.genInfoText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 100%;
+    background-color: var(--sec-layer-background);
+    border: 1px solid var(--def-container-border);
+    border-radius: 0.33rem;
+}
+.star:hover path{
+    fill: rgb(255, 255, 255);
+}
+
+.star{
+    cursor: pointer;
+}
+.star > path{
+    transition: all 0.3s ease-in-out;
+    fill: rgba(0, 0, 0, 0);
+}
+.rated path{
+    fill: white;
+}
+.star:has(~.star:hover) path{
+    fill: white;
+} 
+.star:hover ~ .star path{
+  fill: none;
+}
+.review{
+    height: 11.313rem;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.333rem
+}
+#reviewComment {
+    border: var(--def-container-border);
+    background-color: rgba(51, 51, 51, 0.75);
+    resize: none;
+    height: 66%;
+    overflow: hidden;
+    color: white;
+    width: 15rem;
+    padding: 0.5rem;
+}
+#reviewComment:focus{
+      outline: none; 
+  box-shadow: none;
+}
+.rateButton{
+    padding: 0.5rem 2rem;
+    background-color: var(--button-color);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: 600;
 }
