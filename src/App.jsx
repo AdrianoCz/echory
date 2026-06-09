@@ -11,9 +11,8 @@ function Stars() {
     </svg>
 
 
-    return (
-        star
-    )
+    return star
+
 }
 function AvaliacaoAlbum() {
     const five = ['', '', '', '', ''];
@@ -92,7 +91,7 @@ function AvaliacaoAlbum() {
                         </div>
                     </div>
                     <div className="review infoElement">
-                        <div>
+                        <div className='stars'>
                             {five.map((a, i) => (Svg.ratingStar("star", () => { setPersonalRating(i + 1); console.log(personalRating) }, (i + 1 <= personalRating))))}
 
                         </div>
