@@ -1,0 +1,18 @@
+.IconandBio{
+        display: flex;
+        flex-direction:column
+    }
+    .userIcon {
+    height: 3.66rem;
+    border-radius: 3rem;
+    padding: 10%;
+}
+    .Bio{
+        background-color:#000000;
+    }
+    .genContainer{
+        display: flex;
+        flex-direction: row;
+
+    }
+    

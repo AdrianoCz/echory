@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link, NavLink, Router, useParams } from '
 import './App.css'
 import SVG from "./logo.jsx"
 import userIcon from "/user.png"
+import Perfil from './Perfil.jsx'
 
 function Comment({user, userAvatar, comment, rating, style, star}) {
     return(
@@ -149,6 +150,7 @@ function App() {
             </nav>
             <Routes>
                 <Route path='/album/:albumId' element={<AvaliacaoAlbum />}></Route>
+                <Route path='/profile/:userID' element={<Perfil/>}> </Route>
             </Routes>
         </BrowserRouter>
     </>
