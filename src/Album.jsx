@@ -4,10 +4,10 @@ import './App.css'
 import SVG from "./logo.jsx"
 import userIcon from "/user.png"
 
-function RatingScreen({handleRate}){
-
+function RatingScreen({showRatingScreen,handleRate}){
+    console.log(showRatingScreen)
     return(
-        <div className="ratingScreen"></div>
+        <div style={{display: showRatingScreen? 'flex' : "none"}} className="ratingScreen"></div>
     )
 }
 function Comment({user, userAvatar, comment, rating, style, star}) {
@@ -51,10 +51,9 @@ function AvaliacaoAlbum() {
 
     const [rating, setRating] = useState(album.rating.length != 0 ? ((album.rating.reduce((a, b) => a + b)) / album.rating.length).toFixed(1) : "NR");
     let ratingRange = rating == 5 ? 5 : rating < 5 && rating >= 4.5 ? 4.5 : ratings.filter((ratings, i, array) => i == 8 ? true == true : rating < array[i + 1])[0];
-    console.log(ratingRange);
     const [personalRating, setPersonalRating] = useState(0);
     const [hasRated, setRated] = useState(false);
-
+    const [showRatingScreen, toggleScreen] = useState(false);
     const handleRate = () => {
         
         if (hasRated === true) {
@@ -70,6 +69,7 @@ function AvaliacaoAlbum() {
 
     return (
         <main>
+            <RatingScreen showRatingScreen={showRatingScreen}/>
             <div className='genContainer'>
                 <div className='topHalfContainer'>
                     <div style={{backgroundImage: "url(" + album.cover + ")"}} className='albumCover'></div>
@@ -115,7 +115,7 @@ function AvaliacaoAlbum() {
                             {five.map((a, i) => (Svg.ratingStar("star", () => { setPersonalRating(i + 1); }, (i + 1 <= personalRating))))}
 
                         </div>
-                        {Svg.maximize("maximizeButton")}
+                        {Svg.maximize("maximizeButton", ()=>{toggleScreen(!showRatingScreen); console.log("oi")})}
                         </div>
                         <textarea name="" id="reviewComment"></textarea>
                         <div className='rateButtonContainer'><div onClick={handleRate} className='rateButton'>Rate</div></div>

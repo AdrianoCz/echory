@@ -442,3 +442,20 @@ main {
         margin: 20px auto 0 auto;
     }
 }
+.ratingScreen{
+    width: 50rem;
+    height: 20rem;
+    background-color: var(--def-container-background);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 2rem;
+    backdrop-filter: blur(1px);
+    background-color: var(--def-container-background);
+}
+.ratingScreen::backdrop{
+    background-color: #0093D2;
+}
