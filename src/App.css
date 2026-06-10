@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
     --search-bar-backgroud: #1D1919;
     --gen-background: #2e2e2e;
@@ -9,19 +10,21 @@
     --sec-layer-background: rgba(17, 17, 17, 0.5);
     --def-text-color: #ffffff;
     --button-color: #0093D2;
-}   
+}
 
 * {
     padding: 0;
     margin: 0;
 }
-html, 
-body, 
+
+html,
+body,
 #root {
-  min-height: 100vh; 
-  margin: 0;
-  padding: 0;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
+
 #root {
     background-color: var(--gen-background);
     font-family: 'Montserrat';
@@ -40,14 +43,14 @@ nav {
     margin-bottom: 1rem;
 }
 
-main{
-min-height: calc(100vh - 5.25rem);
-  position: relative;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  overflow: hidden;
+main {
+    min-height: calc(100vh - 5.25rem);
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow: hidden;
 }
 
 .navLogo {
@@ -56,6 +59,7 @@ min-height: calc(100vh - 5.25rem);
 
 .userIcon {
     height: 2.66rem;
+    border-radius: 0.5rem;
 }
 
 .searchBar {
@@ -75,60 +79,71 @@ min-height: calc(100vh - 5.25rem);
     margin-right: 0.75rem;
 }
 
-.userContainer {
+.profileContainer {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
 }
-.genContainer{
-display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  min-height: calc(100vh - 5.25rem);
-  width: 90%;
-  background-color: var(--gen-container-background);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem;
-  padding: 2rem 0;
-  backdrop-filter: blur(0.5rem);
+
+.genContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 5.25rem);
+    width: 90%;
+    background-color: var(--gen-container-background);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    padding: 2rem 0;
+    backdrop-filter: blur(0.5rem);
+    gap: 3rem;
 }
-.topHalfContainer{
+
+.topHalfContainer {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     align-items: center;
     gap: 2.66rem;
 }
-.albumCover{
+
+.albumCover {
     height: 16rem;
     width: 16rem;
     background-color: purple;
     background-size: cover;
+    border-radius: 1rem;
 }
-.infoElement{
+
+
+.infoElement {
     padding: 0.5rem 1.25rem;
     border: 1px solid var(--def-container-border);
     background-color: var(--def-container-background);
     border-radius: 0.66rem;
     backdrop-filter: blur(1px);
 }
-.albumName{
+
+.albumName {
     color: var(--def-text-color);
 }
-#albumName{
+
+#albumName {
     font-size: 2rem;
     font-weight: 600;
 }
-#albumAuthor{
+
+#albumAuthor {
     font-size: 1.25rem;
     font-weight: 450;
 }
-.ratingContainer{
+
+.ratingContainer {
     display: flex;
-    align-items: center;    
+    align-items: center;
     color: white;
     font-size: 2.25rem;
     font-weight: 600;
@@ -139,25 +154,35 @@ display: flex;
     padding: 0 1.5rem;
     border-radius: 55rem;
 }
-.nameReviewContainer{
+
+.albumRatingStar {
+    height: 2.25rem;
+    width: 2.25rem;
+}
+
+.nameReviewContainer {
     display: flex;
     gap: 1rem;
     flex-direction: column;
 }
-.reviewNumber{
+
+.reviewNumber {
     font-weight: 600;
     font-size: 2.25rem;
 }
-.reviewNumberContainer{
+
+.reviewNumberContainer {
     text-align: center;
 }
-.reviewInfo{
+
+.reviewInfo {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 }
-.genInfoContainer{
+
+.genInfoContainer {
     min-width: 25ch;
     display: flex;
     flex-direction: column;
@@ -166,7 +191,8 @@ display: flex;
     padding: 1rem 0;
     gap: 0.5rem
 }
-.genInfo{
+
+.genInfo {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -174,7 +200,8 @@ display: flex;
     gap: 0.125rem;
     width: 90%;
 }
-.genInfoText{
+
+.genInfoText {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,27 +211,40 @@ display: flex;
     border: 1px solid var(--def-container-border);
     border-radius: 0.33rem;
 }
-.star:hover path{
+
+.responsiveContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.66rem;
+    justify-content: center;
+}
+
+.star:hover path {
     fill: rgb(255, 255, 255);
 }
 
-.star{
+.star {
     cursor: pointer;
 }
-.star > path{
+
+.star>path {
     transition: all 0.3s ease-in-out;
     fill: rgba(0, 0, 0, 0);
 }
-.rated path{
+
+.rated path {
     fill: white;
 }
-.star:has(~.star:hover) path{
+
+.star:has(~.star:hover) path {
     fill: white;
-} 
-.star:hover ~ .star path{
-  fill:rgba(0, 0, 0, 0);
 }
-.review{
+
+.star:hover~.star path {
+    fill: rgba(0, 0, 0, 0);
+}
+
+.review {
     height: 11.313rem;
     padding: 1rem 1rem;
     display: flex;
@@ -213,6 +253,7 @@ display: flex;
     align-items: center;
     gap: 0.333rem
 }
+
 #reviewComment {
     border: var(--def-container-border);
     background-color: rgba(51, 51, 51, 0.75);
@@ -223,17 +264,181 @@ display: flex;
     width: 15rem;
     padding: 0.5rem;
 }
-#reviewComment:focus{
-      outline: none; 
-      box-shadow: none;
+
+#reviewComment:focus {
+    outline: none;
+    box-shadow: none;
 }
-.rateButton{
+.starsContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: none;
+    flex-grow: none;
+    width: 100%;
+    align-items: center;
+}
+.rateButton {
     padding: 0.5rem 2rem;
     background-color: var(--button-color);
     border-radius: 0.25rem;
     cursor: pointer;
     font-weight: 600;
 }
-.stars > *:not(:first-child){
+
+.rateButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.maximizeButton{
+    height: 2.5rem;
+    cursor: pointer;
+}
+.stars>*:not(:first-child) {
     margin-left: 0.125rem;
+}
+
+.botHalfContainer {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    width: clamp(100ch, 87.5%, 100rem);
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.commentTitle {
+    background-color: black;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.25rem;
+    margin: 1rem 0;
+}
+
+.commentTitle p {
+    margin-left: 1rem;
+}
+.commentTitle a{
+    margin-right: 1rem;
+    text-decoration: underline;
+    color: white;
+}
+
+.commentContainer {
+    background-color: var(--sec-layer-background);
+    border: 1px solid var(--def-container-border);
+    padding: 1rem;
+    margin-top: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.commentRating {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    gap: 0.5rem;
+    height: 1.75rem;
+    width: fit-content;
+    border: 2px solid;
+    padding: 0 0.5rem;
+    border-radius: 55rem;
+}
+
+.commentRatingStar {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem
+}
+
+.userContainer p {
+    font-weight: 600;
+}
+
+.userAvatar {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 0.5rem;
+    background-size: cover;
+}
+
+.commentSection {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.tracklist {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid var(--def-container-border);
+    background-color: var(--def-container-background);
+    backdrop-filter: blur(1px);
+    border-radius: 0.5rem;
+    width: 30ch;
+    justify-self: end;
+    padding: 2rem 0;
+}
+
+.tracklist p {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.track {
+    background-color: var(--sec-layer-background);
+    word-wrap: normal;
+}
+
+.tracklistContainer>*:not(:last-child) {
+    margin-bottom: 0.5rem;
+
+}
+
+.comments *,
+.tracklist * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1220px) {
+    .botHalfContainer {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0 1fr);
+        justify-content: center;
+        width: 100%;
+
+    }
+
+    .comments {
+        width: 85%;
+        margin: 0 auto;
+        height: fit-content;
+    }
+
+    .userContainer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tracklist {
+        min-width: 0;
+        width: clamp(15rem, 75%, 30ch);
+        max-width: 500px;
+        margin: 20px auto 0 auto;
+    }
 }
