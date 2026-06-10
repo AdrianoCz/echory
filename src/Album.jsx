@@ -4,6 +4,12 @@ import './App.css'
 import SVG from "./logo.jsx"
 import userIcon from "/user.png"
 
+function RatingScreen({handleRate}){
+
+    return(
+        <div className="ratingScreen"></div>
+    )
+}
 function Comment({user, userAvatar, comment, rating, style, star}) {
     return(
         <div className='comment'>
@@ -35,7 +41,8 @@ function AvaliacaoAlbum() {
     const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
     const Svg = SVG();
     const { albumId } = useParams()
-    const albums = [{ id: "1", name: "Imaginal Disk", author: "Magdalena Bay", cover: "https://m.media-amazon.com/images/I/81Q5apmglJL.jpg" , rating: [3.5, 5, 4], reviewNumber: 123, label: "Mom+pop", releaseDate: "2024-08-23", genre: "Synth Pop", tracklist: ["She Looked Like Me!", "Killing Time", "True Blue Interlude", "Image", "Death and Romance", "Fear, Sex", "Vampire in The Corner", "Watching TV", "Tunnel Vision", "Love Is Everywhere", "Feeling Diskinserted?", "Thats my Floor", "Cry For Me", "Angel On a Satellite", "Ballad of Matt & Mica"] }];
+    const albums = [{ id: "1", name: "Imaginal Disk", author: "Magdalena Bay",comments: [{user: "cacal", userAvatar: "", comment: "Prefiro a versão não finalizada encontrada em um cd na tanzania", rating: 3.5}, {user: "gizmobfr", userAvatar: "", comment: "test", rating: 5}, {user: "clara", userAvatar:"", comment:"test", rating: 4} ]
+, cover: "https://m.media-amazon.com/images/I/81Q5apmglJL.jpg" , rating: [3.5, 5, 4], reviewNumber: 123, label: "Mom+pop", releaseDate: "2024-08-23", genre: "Synth Pop", tracklist: ["She Looked Like Me!", "Killing Time", "True Blue Interlude", "Image", "Death and Romance", "Fear, Sex", "Vampire in The Corner", "Watching TV", "Tunnel Vision", "Love Is Everywhere", "Feeling Diskinserted?", "Thats my Floor", "Cry For Me", "Angel On a Satellite", "Ballad of Matt & Mica"] }];
     const [album, setAlbum] = useState(albums.filter((album) => album.id == albumId)[0]);
 
     if (album == undefined) {
@@ -47,7 +54,6 @@ function AvaliacaoAlbum() {
     console.log(ratingRange);
     const [personalRating, setPersonalRating] = useState(0);
     const [hasRated, setRated] = useState(false);
-    const comments = [{user: "cacal", userAvatar: "", comment: "Prefiro a versão não finalizada encontrada em um cd na tanzania", rating: 3.5}, {user: "gizmobfr", userAvatar: "", comment: "test", rating: 5}, {user: "clara", userAvatar:"", comment:"test", rating: 4} ]
 
     const handleRate = () => {
         
@@ -119,7 +125,7 @@ function AvaliacaoAlbum() {
                     <div className="comments">
                         <div className="commentTitle"><p>Comments</p><Link>See more</Link></div>
                         <div className="commentSection infoElement">
-                            {comments.map((element)=> <Comment user={element.user} userAvatar={element.userAvatar} comment={element.comment} rating={element.rating} style={{borderColor: ratingsBorderColor[ratings.indexOf(element.rating)], backgroundColor: ratingsBackgroundColor[ratings.indexOf(element.rating)]}} star={Svg.star("commentRatingStar", ratingsBorderColor[ratings.indexOf(element.rating)], ratingsBorderColor[ratings.indexOf(element.rating)], element.rating == 5)} />)}
+                            {album.comments.map((element)=> <Comment user={element.user} userAvatar={element.userAvatar} comment={element.comment} rating={element.rating} style={{borderColor: ratingsBorderColor[ratings.indexOf(element.rating)], backgroundColor: ratingsBackgroundColor[ratings.indexOf(element.rating)]}} star={Svg.star("commentRatingStar", ratingsBorderColor[ratings.indexOf(element.rating)], ratingsBorderColor[ratings.indexOf(element.rating)], element.rating == 5)} />)}
                         </div>
                     </div>
                     <div className="tracklist">
