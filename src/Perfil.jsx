@@ -13,6 +13,11 @@ function Perfil() {
                        <img className='userIcon' src={userIcon} alt="" />
                        <button className='EditarPerfil'>Editar Perfil</button>
                     </div>
+                    <div className='NameLocation'>
+                        <p className='userName'>John Doe</p>
+                        <p className='userLocation'>New York, NY</p>
+                    </div>
+                
                      <p className='Bio'>Dhafdasdhkadhadhkasdhasghkdsakdsjhsda</p>
                 </div>
                 
@@ -22,4 +27,4 @@ function Perfil() {
     )
 }
 
-export default Perfil
+export default Perfil 
