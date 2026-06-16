@@ -4,10 +4,15 @@ import './App.css'
 import SVG from "./logo.jsx"
 import userIcon from "/user.png"
 
-function RatingScreen({showRatingScreen,handleRate}){
+function RatingScreen({showRatingScreen, handleRate, album}){
     console.log(showRatingScreen)
     return(
-        <div style={{display: showRatingScreen? 'flex' : "none"}} className="ratingScreen"></div>
+        <div style={{display: showRatingScreen ? 'flex' : "none"}} className="  ratingScreen">
+            <div className="ratingScreenTop">
+                <div className="albumCover ratingScreenAlbumContainer"></div>
+                <div><div className="ratingScreenInfoContainer">a</div><div className="ratingScreenInfoContainer">a</div></div>
+            </div>
+        </div>
     )
 }
 function Comment({user, userAvatar, comment, rating, style, star}) {
@@ -69,7 +74,7 @@ function AvaliacaoAlbum() {
 
     return (
         <main>
-            <RatingScreen showRatingScreen={showRatingScreen}/>
+            <RatingScreen showRatingScreen={true} handleRate={handleRate}/>
             <div className='genContainer'>
                 <div className='topHalfContainer'>
                     <div style={{backgroundImage: "url(" + album.cover + ")"}} className='albumCover'></div>
@@ -115,7 +120,7 @@ function AvaliacaoAlbum() {
                             {five.map((a, i) => (Svg.ratingStar("star", () => { setPersonalRating(i + 1); }, (i + 1 <= personalRating))))}
 
                         </div>
-                        {Svg.maximize("maximizeButton", ()=>{toggleScreen(!showRatingScreen); console.log("oi")})}
+                        {Svg.maximize("maximizeButton", ()=>{toggleScreen(!showRatingScreen);})}
                         </div>
                         <textarea name="" id="reviewComment"></textarea>
                         <div className='rateButtonContainer'><div onClick={handleRate} className='rateButton'>Rate</div></div>
