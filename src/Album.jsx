@@ -74,7 +74,7 @@ function AvaliacaoAlbum() {
 
     return (
         <main>
-            <RatingScreen showRatingScreen={true} handleRate={handleRate}/>
+            <RatingScreen showRatingScreen={showRatingScreen} handleRate={handleRate}/>
             <div className='genContainer'>
                 <div className='topHalfContainer'>
                     <div style={{backgroundImage: "url(" + album.cover + ")"}} className='albumCover'></div>
