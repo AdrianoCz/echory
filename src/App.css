@@ -415,6 +415,89 @@ main {
     box-sizing: border-box;
 }
 
+.ratingScreen{
+    width: clamp(20rem, 50%, 50rem);
+    background-color: rgba(25, 25, 25, 0.10);
+    position: fixed;
+    height: fit-content;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 2rem;
+    backdrop-filter: blur(3px); 
+    border: 1px solid var(--def-container-border);
+    z-index: 2;
+    padding: 2rem;
+    flex-wrap:wrap;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.1s ease-in-out;
+}
+
+.ratingScreenTop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.ratingScreenAlbumCover{
+    height: 12rem;
+    width: 12rem;
+}
+.ratingScreenTop > div:last-child{
+    display: flex;
+    gap: 1rem;
+}
+.ratingScreenButtons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    justify-content: center;
+   
+}
+.ratingScreenInfoContainer{
+    width: 12.5rem;
+    height: 4rem;
+    border: 1px solid var(--def-container-border);
+    background-color: var(--sec-layer-background);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     backdrop-filter: blur(5px);
+     z-index: 3;
+}
+#ratingScreenComment{
+    margin-top: 2rem;
+    border: 1px solid var(--def-container-border);
+    background-color: var(--sec-layer-background);
+    border-radius: 0.5rem;
+    color: white;
+        backdrop-filter: blur(5px);
+        z-index: 3;
+        width: 80%;
+        height: 5rem;   
+    padding: 1rem;
+    resize: none;
+}
+#ratingScreenComment > *{
+    margin: 1rem;;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 @media (max-width: 1220px) {
     .botHalfContainer {
         grid-template-columns: 1fr;
@@ -441,55 +524,4 @@ main {
         max-width: 500px;
         margin: 20px auto 0 auto;
     }   
-}
-
-.ratingScreen{
-    width: clamp(20rem, 50%, 75rem);
-    background-color: rgba(25, 25, 25, 0.10);
-    position: fixed;
-    height: fit-content;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    border-radius: 2rem;
-    backdrop-filter: blur(3px); 
-    border: 2px solid var(--def-container-border);
-    z-index: 2;
-    padding: 2rem;
-}
-.ratingScreenTop{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
-.ratingScreenAlbumCover{
-    height: 12rem;
-    width: 12rem;
-}
-.ratingScreenTop > div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-    justify-content: center;
-   
-}
-.ratingScreenInfoContainer{
-    width: 12.5rem;
-    height: 4rem;
-    border: 1px solid var(--def-container-border);
-    background-color: var(--sec-layer-background);
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-     backdrop-filter: blur(5px);
-     z-index: 3;
-}
-
-.ratingScreen::backdrop{
-    background-color: #0093D2;
 }

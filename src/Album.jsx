@@ -7,11 +7,14 @@ import userIcon from "/user.png"
 function RatingScreen({showRatingScreen, handleRate, album}){
     console.log(showRatingScreen)
     return(
-        <div style={{display: showRatingScreen ? 'flex' : "none"}} className="  ratingScreen">
+        <div style={{display: showRatingScreen ? 'flex' : "none", opacity: showRatingScreen ? 1 : 0}} className="  ratingScreen">
             <div className="ratingScreenTop">
                 <div className="albumCover ratingScreenAlbumContainer"></div>
-                <div><div className="ratingScreenInfoContainer">a</div><div className="ratingScreenInfoContainer">a</div></div>
-            </div>
+                <div>
+                <div className='ratingScreenButtons'><div className="ratingScreenInfoContainer">a</div><div className="ratingScreenInfoContainer">a</div></div>
+                <div className='ratingScreenButtons'><div className="ratingScreenInfoContainer">a</div><div className="ratingScreenInfoContainer">a</div></div>
+                </div>
+            </div><textarea name="" id="ratingScreenComment" placeholder='Write your review here...'></textarea>
         </div>
     )
 }
