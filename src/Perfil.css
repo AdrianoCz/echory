@@ -13,8 +13,7 @@
 }
 
 * {
-    margin-left: 0.2rem;
-    margin-right: 0.5rem;
+
     font-family: 'Montserrat';
     color: #C5C5C5;
    
@@ -37,20 +36,34 @@ body,
 }
 .IconandBio{
         display: flex;
-        flex-direction:column
+        flex-direction:column;
+        gap: 0.5rem;
     }
     .userIcon {
-    height: 3.66rem;
-    border-radius: 3rem;
-    padding: 10%;
+    height: 2.66rem;
+    border-radius: 0.5rem;
+    background-size: cover;
+}
+.IconandBio .userIcon{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 6rem;
+    
 }
     .Bio{
-        background-color:#000000;
+        background-color:#151515;
+        width: 27rem;
+        text-align:left;
+        display: flex;
+        padding: 0.5rem;
+        height: 5rem;
+        border-radius: 0.5rem;
     }
     .perfilInfo{
         display: flex;
         flex-direction: row;
         align-items: center;
+        gap: 1rem;
 
     }
     .Namelocation{
@@ -62,7 +75,9 @@ body,
     }
     .userName{
         font-size: 24px;
-        font-weight: bold;
+        font-weight: bold;  
+        display: flex;
+        padding: 0.5rem 0rem;
     }
     .userLocation{
         font-size: 16px;
@@ -77,15 +92,37 @@ body,
     border: none;
     cursor: pointer;
     color: white;
+    width: 5.6rem;
+    border-radius: 0.3rem;
 }
 .albunsContainer{
     display: flex;
     cursor: pointer;
-    flex-direction: row;
-    width: 45rem;
-    height:10rem;
+    flex-wrap: wrap;
     gap:0.3rem;
     background-color: #151515;
+    justify-content: center;
+     width: 45rem;
+    height:14rem;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding: 0rem 0.7rem;
+    
+}
+.albunsContainer2{
+    display: flex;
+    cursor: pointer;
+    flex-wrap: wrap;
+    gap:0.3rem;
+    background-color: #151515;
+    width: 45rem;
+    height:23rem;
+    padding-left: 2rem;
+    align-items: center;
+    border-radius: 0.5rem;
+    justify-content: center;
+    padding: 0.7rem 0.7rem;
+;
 }
 .perfilContainer{
     display: flex;
@@ -102,22 +139,37 @@ body,
 }
 .Title{
     background-color: #151515;
-    width: 43.5rem;
+    width: 45.9rem;
     height: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 0.5rem;
-
+    border-radius: 0.5rem;
 }
 .VerTudo{
     align-items: end;
     display: flex;
      text-align:justify;
     align-items: center;
+    padding: 0rem 0.6rem;
 }
 .albunsRec{
     
     text-align:justify;
     display: flex;
+}
+.Album{
+    width: 10rem;
+    height:10rem; 
+    padding: 0.3rem;
+}
+.locationIcon{
+    width: 1rem;
+    height: 1rem;
+}
+.iconAndLocation{
+    display: flex;
+    flex-direction: row;
+    gap: 0.1rem;
 }
