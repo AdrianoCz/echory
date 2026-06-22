@@ -9,7 +9,7 @@ import AvaliacaoAlbum from './Album.jsx'
 function App() {
     const Svg = SVG()
     return (<>
-        <BrowserRouter>
+        <BrowserRouter basename='/echory'>
             <nav>
                 <Link to="/">
                     {Svg.logo("navLogo")}
