@@ -7,7 +7,7 @@ import location from  '/SVGRepo_iconCarrier.png'
 
 function Perfil() {
     return(
-        <main>
+        <main className='perfilMain'>
             <div className="genContainer">
                 <main className='perfilContainer'>
                 <div className='perfilInfo'>
@@ -54,7 +54,32 @@ function Perfil() {
                    < img className='Album' src="https://i.pinimg.com/736x/ad/8c/b6/ad8cb6088235829545d3254c6da948a1.jpg" alt="" />
                 </div>
                 </main>
-            
+                <main className='perfilContainer'>
+                    <p>Listas</p>
+                    <p>Ver tudo</p>
+                    <div className='lista1'>
+                        
+                        <div className='albumListaContainer'>
+                            <p className='albumListaTitle'>Lista 1</p>
+                            <div className='albumListaContainer2'>
+                            <img className='albumLista' src="https://i.pinimg.com/736x/d4/8a/ae/d48aae594dd5a62c8efaed755d8fc25a.jpg" alt="" />
+                            <img className='albumLista' src="https://i.pinimg.com/736x/d4/8a/ae/d48aae594dd5a62c8efaed755d8fc25a.jpg" alt="" />
+                            <img className='albumLista' src="https://i.pinimg.com/736x/d4/8a/ae/d48aae594dd5a62c8efaed755d8fc25a.jpg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                     <div className='lista2'>
+                        
+                        <div className='albumListaContainer'>
+                            <p className='albumListaTitle'>Lista 2</p>
+                             <div className='albumListaContainer2'>
+                        <img className='albumLista' src="https://i.pinimg.com/736x/d4/8a/ae/d48aae594dd5a62c8efaed755d8fc25a.jpg" alt="" />
+                        <img className='albumLista' src="https://i.pinimg.com/736x/d4/8a/ae/d48aae594dd5a62c8efaed755d8fc25a.jpg" alt="" />
+                        <img className='albumLista' src="https://i.pinimg.com/736x/d4/8a/ae/d48aae594dd5a62c8efaed755d8fc25a.jpg" alt="" />
+                        </div>
+                        </div>
+                    </div>
+                </main>
             </div>
         </main>
     )
