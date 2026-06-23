@@ -9,7 +9,7 @@ function RatingScreen({showRatingScreen, handleRate, album, toggleScreen, rating
     return(
         <div ref={ratingScreen} style={{display: showRatingScreen ? 'flex' : "none", opacity: showRatingScreen ? 1 : 0}} className="  ratingScreen">
             <div ref={ratingScreen} className="ratingScreenTop">
-                <div className="albumCover ratingScreenAlbumContainer"></div>
+                <div style={{backgroundImage: "url(" + album.cover + ")"}} className="albumCover ratingScreenAlbumContainer"></div>
                 <div>
                 <div className='ratingScreenButtons'>
                     <div className="ratingScreenInfoContainer ratingScreenName">
@@ -32,7 +32,7 @@ function RatingScreen({showRatingScreen, handleRate, album, toggleScreen, rating
                     <div style={{opacity : 0}} className="ratingScreenInfoContainer">a</div></div>
                 </div>
                 
-            </div><textarea ref={textAreaRef} name="" id="ratingScreenComment" placeholder='Write your review here...'></textarea>
+            </div><textarea ref={textAreaRef} name="" className='ratingScreenComment' id="ratingScreenComment" placeholder='Write your review here...'></textarea>
             <div onClick={() => {handleRate(textAreaRef); toggleScreen(!showRatingScreen)}} className='rateButton'>Rate</div>
             {Svg.addToList("closeButton", () =>{toggleScreen(!showRatingScreen)})}
         </div>
@@ -42,7 +42,7 @@ function Comment({user, userAvatar, comment, rating, style, star}) {
     return(
         <div className='comment'>
         <div className='userContainer'>
-            <div style={{backgroundImage: userAvatar ? "url(" + userAvatar + ")" : "url(" + "/user.png" + ")"}} className='userAvatar'></div>
+            <div style={{backgroundImage: userAvatar ? "url(" + userAvatar + ")" : "url(" + userIcon+ ")"}} className='userAvatar'></div>
             <p>{user}</p>
             <div style={style} className="commentRating">{rating} {star}</div>
         </div>
@@ -62,15 +62,13 @@ function Stars() {
     return star
 
 }
-function AvaliacaoAlbum() {
+function AvaliacaoAlbum({albums}) {
     const five = ['', '', '', '', ''];
     const ratingsBorderColor = ["#300a05", "darkred", "red", "#ff7300", "yellow", "greenyellow", "green", "#0084ff", "#ffb700"];
     const ratingsBackgroundColor = ["#974b412f", "#582f2f2f", "#ff43432f", "#f58f3c2f", "#ffff812f", "#c1f86f2f", "#3d803d2f", "#5bb0ff2f", "#ffd05b2f"];
     const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
     const Svg = SVG();
     const { albumId } = useParams()
-    const albums = [{ id: "1", name: "Imaginal Disk", author: "Magdalena Bay",comments: [{user: "cacal", userAvatar: "", comment: "Prefiro a versão não finalizada encontrada em um cd na tanzania", rating: 3.5}, {user: "gizmobfr", userAvatar: "", comment: "test", rating: 5}, {user: "clara", userAvatar:"", comment:"test", rating: 4} ]
-, cover: "https://m.media-amazon.com/images/I/81Q5apmglJL.jpg" , rating: [3.5, 5, 4], reviewNumber: 123, label: "Mom+pop", releaseDate: "2024-08-23", genre: "Synth Pop", tracklist: ["She Looked Like Me!", "Killing Time", "True Blue Interlude", "Image", "Death and Romance", "Fear, Sex", "Vampire in The Corner", "Watching TV", "Tunnel Vision", "Love Is Everywhere", "Feeling Diskinserted?", "Thats my Floor", "Cry For Me", "Angel On a Satellite", "Ballad of Matt & Mica"] }];
     const [album, setAlbum] = useState(albums.filter((album) => album.id == albumId)[0]);
 
     if (album == undefined) {
@@ -82,7 +80,7 @@ function AvaliacaoAlbum() {
     const [personalRating, setPersonalRating] = useState(1);
     const [hasRated, setRated] = useState(false);
     const [showRatingScreen, toggleScreen] = useState(false);
-    const textArea = useRef();
+    const textArea = useRef();  
     const quickText = useRef();
     const ratingScreen = useRef();
     const [refresher, refresh] = useState({})
