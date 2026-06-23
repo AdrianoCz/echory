@@ -4,17 +4,37 @@ import './App.css'
 import SVG from "./logo.jsx"
 import userIcon from "/user.png"
 
-function RatingScreen({showRatingScreen, handleRate, album}){
-    console.log(showRatingScreen)
+function RatingScreen({showRatingScreen, handleRate, album, toggleScreen, ratingScreen, Svg, setPersonalRating, personalRating, textAreaRef}){
+    const five = ['', '', '', '', '']
     return(
-        <div style={{display: showRatingScreen ? 'flex' : "none", opacity: showRatingScreen ? 1 : 0}} className="  ratingScreen">
-            <div className="ratingScreenTop">
+        <div ref={ratingScreen} style={{display: showRatingScreen ? 'flex' : "none", opacity: showRatingScreen ? 1 : 0}} className="  ratingScreen">
+            <div ref={ratingScreen} className="ratingScreenTop">
                 <div className="albumCover ratingScreenAlbumContainer"></div>
                 <div>
-                <div className='ratingScreenButtons'><div className="ratingScreenInfoContainer">a</div><div className="ratingScreenInfoContainer">a</div></div>
-                <div className='ratingScreenButtons'><div className="ratingScreenInfoContainer">a</div><div className="ratingScreenInfoContainer">a</div></div>
+                <div className='ratingScreenButtons'>
+                    <div className="ratingScreenInfoContainer ratingScreenName">
+                        <div>
+                        <p className='albumName'>{album.name}</p> 
+                        <p className='albumAuthor'>{album.author}</p>
+                        </div>
+                    </div>
+                    <div className="ratingScreenInfoContainer addList">
+                        {Svg.addToList("AddToList")} Add To List
+                        </div>
+                        </div>
+                <div className='ratingScreenButtons'>
+                    <div className="ratingScreenInfoContainer">
+                        <div className='stars'>
+                            {five.map((a, i) => (Svg.ratingStar("star", () => { setPersonalRating(i + 1); }, (i + 1 <= personalRating))))}
+
+                        </div>
+                    </div>
+                    <div style={{opacity : 0}} className="ratingScreenInfoContainer">a</div></div>
                 </div>
-            </div><textarea name="" id="ratingScreenComment" placeholder='Write your review here...'></textarea>
+                
+            </div><textarea ref={textAreaRef} name="" id="ratingScreenComment" placeholder='Write your review here...'></textarea>
+            <div onClick={() => {handleRate(textAreaRef); toggleScreen(!showRatingScreen)}} className='rateButton'>Rate</div>
+            {Svg.addToList("closeButton", () =>{toggleScreen(!showRatingScreen)})}
         </div>
     )
 }
@@ -26,9 +46,9 @@ function Comment({user, userAvatar, comment, rating, style, star}) {
             <p>{user}</p>
             <div style={style} className="commentRating">{rating} {star}</div>
         </div>
-        <div className='commentContainer'>
+        {comment ? <div className='commentContainer'>
         {comment}
-        </div>
+        </div> : ""}
         </div>
     )
 }
@@ -59,32 +79,45 @@ function AvaliacaoAlbum() {
 
     const [rating, setRating] = useState(album.rating.length != 0 ? ((album.rating.reduce((a, b) => a + b)) / album.rating.length).toFixed(1) : "NR");
     let ratingRange = rating == 5 ? 5 : rating < 5 && rating >= 4.5 ? 4.5 : ratings.filter((ratings, i, array) => i == 8 ? true == true : rating < array[i + 1])[0];
-    const [personalRating, setPersonalRating] = useState(0);
+    const [personalRating, setPersonalRating] = useState(1);
     const [hasRated, setRated] = useState(false);
     const [showRatingScreen, toggleScreen] = useState(false);
-    const handleRate = () => {
-        
+    const textArea = useRef();
+    const quickText = useRef();
+    const ratingScreen = useRef();
+    const [refresher, refresh] = useState({})
+    const handleRate = (commentInput) => {
+        console.log(commentInput.current.value)
         if (hasRated === true) {
+            console.log(commentInput.current.value)
             album.rating[album.rating.length - 1] = personalRating;
             setRating((album.rating.reduce((a, b) => a + b) / album.rating.length).toFixed(1));
+            album.comments[album.comments.length - 1].comment = commentInput.current.value;
+            album.comments[album.comments.length - 1].rating = personalRating;
+            commentInput.current.value = ""
         } else{
             album.rating.push(personalRating);
             setAlbum(album);
             setRating((album.rating.reduce((a, b) => a + b) / album.rating.length).toFixed(1));
+            album.comments.push({user: "you", comment: commentInput.current.value ? commentInput.current.value : "" , rating:personalRating, userAvatar:""})
+            commentInput.current.value = "";
         }
+
         setRated(true);
+        setAlbum(album)
     }
+
 
     return (
         <main>
-            <RatingScreen showRatingScreen={showRatingScreen} handleRate={handleRate}/>
+            <RatingScreen Svg={Svg} album={album} textAreaRef={textArea} setPersonalRating={setPersonalRating} personalRating={personalRating} toggleScreen={toggleScreen} ratingScreen={ratingScreen} showRatingScreen={showRatingScreen} handleRate={handleRate}/>
             <div className='genContainer'>
                 <div className='topHalfContainer'>
                     <div style={{backgroundImage: "url(" + album.cover + ")"}} className='albumCover'></div>
                     <div className='nameReviewContainer'>
-                        <div className='albumName infoElement'>
-                            <p id='albumName'>{album.name}</p>
-                            <p id='albumAuthor'>{album.author}</p>
+                        <div className='albumNameInfo infoElement'>
+                            <p className='albumAuthor'>{album.author}</p>
+                            <p className='albumName'>{album.name}</p>
                         </div>
                         <div className="reviewInfo infoElement">
                             <div className="ratingContainer" style={
@@ -125,8 +158,8 @@ function AvaliacaoAlbum() {
                         </div>
                         {Svg.maximize("maximizeButton", ()=>{toggleScreen(!showRatingScreen);})}
                         </div>
-                        <textarea name="" id="reviewComment"></textarea>
-                        <div className='rateButtonContainer'><div onClick={handleRate} className='rateButton'>Rate</div></div>
+                        <textarea ref={quickText} name="" id="reviewComment"></textarea>
+                        <div className='rateButtonContainer'><div onClick={()=>{handleRate(quickText); refresh({})}} className='rateButton'>Rate</div></div>
                     </div></div>
                 </div>
                 <div className='botHalfContainer'>

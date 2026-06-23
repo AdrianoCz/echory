@@ -10,6 +10,7 @@
     --sec-layer-background: rgba(17, 17, 17, 0.5);
     --def-text-color: #ffffff;
     --button-color: #0093D2;
+    --rating-screen-border: rgba(255, 255, 255, 0.096);
 }
 
 * {
@@ -127,16 +128,16 @@ main {
     backdrop-filter: blur(1px);
 }
 
-.albumName {
+.albumNameInfo {
     color: var(--def-text-color);
 }
 
-#albumName {
+.albumName {
     font-size: 2rem;
     font-weight: 600;
 }
 
-#albumAuthor {
+.albumAuthor {
     font-size: 1.25rem;
     font-weight: 450;
 }
@@ -269,7 +270,8 @@ main {
     outline: none;
     box-shadow: none;
 }
-.starsContainer{
+
+.starsContainer {
     display: flex;
     justify-content: space-between;
     flex-shrink: none;
@@ -277,6 +279,7 @@ main {
     width: 100%;
     align-items: center;
 }
+
 .rateButton {
     padding: 0.5rem 2rem;
     background-color: var(--button-color);
@@ -290,10 +293,12 @@ main {
     display: flex;
     justify-content: end;
 }
-.maximizeButton{
+
+.maximizeButton {
     height: 2.5rem;
     cursor: pointer;
 }
+
 .stars>*:not(:first-child) {
     margin-left: 0.125rem;
 }
@@ -319,7 +324,8 @@ main {
 .commentTitle p {
     margin-left: 1rem;
 }
-.commentTitle a{
+
+.commentTitle a {
     margin-right: 1rem;
     text-decoration: underline;
     color: white;
@@ -415,7 +421,7 @@ main {
     box-sizing: border-box;
 }
 
-.ratingScreen{
+.ratingScreen {
     width: clamp(20rem, 50%, 50rem);
     background-color: rgba(25, 25, 25, 0.10);
     position: fixed;
@@ -426,11 +432,11 @@ main {
     bottom: 0;
     margin: auto;
     border-radius: 2rem;
-    backdrop-filter: blur(3px); 
-    border: 1px solid var(--def-container-border);
+    backdrop-filter: blur(5px);
+    border: 2px solid var(--rating-screen-border);
     z-index: 2;
     padding: 2rem;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     display: flex;
     justify-content: center;
     opacity: 1;
@@ -439,30 +445,35 @@ main {
     animation: fadeIn 0.1s ease-in-out;
 }
 
-.ratingScreenTop{
+.ratingScreenTop {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
 }
-.ratingScreenAlbumCover{
+
+.ratingScreenAlbumCover {
     height: 12rem;
     width: 12rem;
 }
-.ratingScreenTop > div:last-child{
+
+.ratingScreenTop>div:last-child {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
-.ratingScreenButtons{
+
+.ratingScreenButtons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 1rem;
     justify-content: center;
-   
+    flex-wrap: wrap;
 }
-.ratingScreenInfoContainer{
+
+.ratingScreenInfoContainer {
     width: 12.5rem;
     height: 4rem;
     border: 1px solid var(--def-container-border);
@@ -471,33 +482,80 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-     backdrop-filter: blur(5px);
-     z-index: 3;
+    backdrop-filter: blur(5px);
+    z-index: 3;
 }
-#ratingScreenComment{
+
+.ratingScreenInfoContainer .albumAuthor {
+    font-size: 1rem;
+}
+
+.ratingScreenInfoContainer .albumName {
+    font-size: 1.5rem;
+}
+
+#ratingScreenComment {
     margin-top: 2rem;
     border: 1px solid var(--def-container-border);
     background-color: var(--sec-layer-background);
     border-radius: 0.5rem;
     color: white;
-        backdrop-filter: blur(5px);
-        z-index: 3;
-        width: 80%;
-        height: 5rem;   
+    backdrop-filter: blur(5px);
+    z-index: 3;
+    width: 80%;
+    min-height: 5rem;
+    height: 5rem;
     padding: 1rem;
     resize: none;
 }
-#ratingScreenComment > *{
-    margin: 1rem;;
+
+#ratingScreenComment>* {
+    margin: 1rem;
+}
+
+.ratingScreen .rateButton{
+    margin-top: 1rem;
+}
+.closeButton {
+    transform: rotate(45deg);
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    top: 1rem;
+    right: 1rem;
+    transition: all linear 0.1s;
+}
+.closeButton:hover{
+    transform: scale(1.1) rotate(45deg) ;
+
+}
+
+.addList {
+    gap: 0.66rem;
+    font-weight: 500;
+    cursor: pointer;
+    transform: scale(1);
+    transition: all linear 0.1s;
+}
+.addList:hover{
+    transform: scale(1.02)
+}
+textarea{
+    font-family: montserrat;
+}
+#fadeOut{
+    animation: fadeIn 0.1s ease-in-out reverse;
 }
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
+
 @media (max-width: 1220px) {
     .botHalfContainer {
         grid-template-columns: 1fr;
@@ -523,5 +581,38 @@ main {
         width: clamp(15rem, 75%, 30ch);
         max-width: 500px;
         margin: 20px auto 0 auto;
-    }   
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .ratingScreen .albumCover {
+        height: 15rem;
+        width: 15rem;
+        margin-top: 5rem;
+    }
+
+    .ratingScreen {
+        width: clamp(15rem, 50%, 50rem);
+        overflow: scroll;
+        max-height: 70dvh;
+        flex-wrap: nowrap;
+        padding-top: 5rem;
+    }
+
+    .ratingScreenButtons:last-of-type .ratingScreenInfoContainer:last-of-type {
+        display: none;
+    }
+
+    .ratingScreenTop>div:last-child {
+
+        justify-content: center;
+        align-items: center;
+    }
+    @media (max-height: 700px){
+    .ratingScreen{
+        padding-top: 10rem;
+    }
+}
 }
