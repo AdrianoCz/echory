@@ -55,8 +55,25 @@ function Perfil() {
                 </div>
                 </main>
                 <main className='perfilContainer'>
+                    <div className='perfilInfo'>
+                        <div  className='perfilInfoN'>
+                        <p className='userNumber'>0</p>
+                        <p className='userLabel'>Ratings</p>
+                        </div>
+                        <div  className='perfilInfoN'>
+                        <p className='userNumber'>0</p>
+                        <p className='userLabel'>Seguidores</p>
+                        </div>
+                        <div  className='perfilInfoN'>
+                        <p className='userNumber'>0</p>
+                        <p className='userLabel'>Seguindo</p>
+                        </div>
+                    </div>
+                    <div className='Title1'>
                     <p>Listas</p>
-                    <p>Ver tudo</p>
+                    <p className='VerTudo'>Ver tudo  </p>
+                    </div>
+                <div className='listasContainer'>
                     <div className='lista1'>
                         
                         <div className='albumListaContainer'>
@@ -79,6 +96,7 @@ function Perfil() {
                         </div>
                         </div>
                     </div>
+                </div>
                 </main>
             </div>
         </main>

@@ -86,7 +86,10 @@ body,
 .genContainer{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items:flex-start;
+    justify-content: center;
+    width: 70%;
+
 }
 .EditarPerfil{
     background-color:#0093D2;
@@ -154,6 +157,9 @@ body,
      text-align:justify;
     align-items: center;
     padding: 0rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight:450;
+    cursor: pointer;
 }
 .albunsRec{
     
@@ -182,22 +188,21 @@ body,
 }
 .albumListaContainer{
     display: flex;
-    
     flex-direction: column;
     cursor: pointer;
     flex-wrap: wrap;
     gap:0.3rem;
-    background-color: #151515;
+    background-color: #0D0D0D;
     width: 18rem;
     height:8rem;
     align-items: center;
     border-radius: 0.5rem;
     justify-content:center;
-    align-items: flex-start;
+    align-items: center;
     
 }
 .albumListaTitle{
-    padding-left: 0.5rem;
+    width: 90%;
 }
 .albumLista{
     width: 5rem;
@@ -205,10 +210,54 @@ body,
     padding: 0.3rem;
 }
 .albumListaContainer2{
-     display: flex;
+    display: flex;
     flex-direction: row;
     cursor: pointer;
     flex-wrap: wrap;
-     gap:0.3rem;
-      align-items: center;
+    align-items: center;
+
+}
+.Title1{
+    background-color: #151515;
+    width:19.5rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.5rem;
+    border-radius: 0.5rem;
+}
+.listasContainer{
+    display: flex;
+    flex-direction:column;
+    gap: 1rem;
+    background-color: #151515;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+.perfilInfoN{
+    background-color: #151515;
+    border-radius: 0.5rem;
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem;
+}
+.perfilInfo{
+    display: flex;
+    flex-direction: row;
+}
+.userNumber{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.userLabel{
+    font-size: 0.8rem;
 }
