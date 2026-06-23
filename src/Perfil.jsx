@@ -45,13 +45,11 @@ function Perfil() {
                 </div>
                 <div className='albunsContainer2'>
                     < img className='Album' src="https://i.pinimg.com/1200x/9d/41/71/9d4171ec44d80e197e5a52192f74f178.jpg" alt="" />
-                   < img className='Album' src="https://i.pinimg.com/1200x/31/9b/7b/319b7b6036d71254292e6fa83c84d7df.jpg" alt="" />
-                   < img className='Album' src="https://i.pinimg.com/736x/cb/d6/dd/cbd6dde9f19c87d3ee0abbd4bea42ae7.jpg" alt="" />
-                   < img className='Album' src="https://i.pinimg.com/736x/ad/8c/b6/ad8cb6088235829545d3254c6da948a1.jpg" alt="" />
+                    < img className='Album' src="https://i.pinimg.com/1200x/31/9b/7b/319b7b6036d71254292e6fa83c84d7df.jpg" alt="" />
+                    < img className='Album' src="https://i.pinimg.com/736x/cb/d6/dd/cbd6dde9f19c87d3ee0abbd4bea42ae7.jpg" alt="" />
+                    < img className='Album' src="https://i.pinimg.com/736x/ad/8c/b6/ad8cb6088235829545d3254c6da948a1.jpg" alt="" />
                     < img className='Album' src="https://i.pinimg.com/1200x/9d/41/71/9d4171ec44d80e197e5a52192f74f178.jpg" alt="" />
-                   < img className='Album' src="https://i.pinimg.com/1200x/31/9b/7b/319b7b6036d71254292e6fa83c84d7df.jpg" alt="" />
-                   < img className='Album' src="https://i.pinimg.com/736x/cb/d6/dd/cbd6dde9f19c87d3ee0abbd4bea42ae7.jpg" alt="" />
-                   < img className='Album' src="https://i.pinimg.com/736x/ad/8c/b6/ad8cb6088235829545d3254c6da948a1.jpg" alt="" />
+          
                 </div>
                 </main>
                 <main className='perfilContainer'>
