@@ -508,16 +508,17 @@ main {
     height: 5rem;
     padding: 1rem;
     resize: none;
-    transition: all 0.1s linear ;
+    transition: all 0.1s linear;
 }
 
 #ratingScreenComment>* {
     margin: 1rem;
 }
 
-.ratingScreen .rateButton{
+.ratingScreen .rateButton {
     margin-top: 1rem;
 }
+
 .closeButton {
     transform: rotate(45deg);
     cursor: pointer;
@@ -527,8 +528,9 @@ main {
     right: 1rem;
     transition: all linear 0.1s;
 }
-.closeButton:hover{
-    transform: scale(1.1) rotate(45deg) ;
+
+.closeButton:hover {
+    transform: scale(1.1) rotate(45deg);
 
 }
 
@@ -539,19 +541,24 @@ main {
     transform: scale(1);
     transition: all linear 0.1s;
 }
-.addList:hover{
+
+.addList:hover {
     transform: scale(1.02)
 }
-textarea{
+
+textarea {
     font-family: montserrat;
 }
-#fadeOut{
+
+#fadeOut {
     animation: fadeIn 0.1s ease-in-out reverse;
 }
-textarea:focus{
+
+textarea:focus {
     outline: none;
     border: 1px solid var(--rating-screen-text-area-active-border);
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -562,7 +569,7 @@ textarea:focus{
     }
 }
 
-@media (max-width: 1220px) {
+@media (max-width: 1000px) {
     .botHalfContainer {
         grid-template-columns: 1fr;
         grid-template-rows: minmax(0 1fr);
@@ -616,9 +623,10 @@ textarea:focus{
         justify-content: center;
         align-items: center;
     }
-    @media (max-height: 700px){
-    .ratingScreen{
-        padding-top: 10rem;
+
+    @media (max-height: 700px) {
+        .ratingScreen {
+            padding-top: 10rem;
+        }
     }
-}
 }

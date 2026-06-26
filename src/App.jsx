@@ -21,12 +21,12 @@ function App() {
                 </Link>
                 <div className='profileContainer'>
                     <div className='searchBar'>{Svg.searchIcon("searchIcon")}</div>
-                    <img className='userIcon' src={userIcon} alt="" />
+                    <Link to='/profile/1'><img className='userIcon' src={userIcon} alt="" /></Link>
                 </div>
             </nav>
             <Routes>
                 <Route path='/album/:albumId' element={<AvaliacaoAlbum albums={albums} />}></Route>
-                <Route path='/profile/:userID' element={<Perfil />}> </Route>
+                <Route path='/profile/:userID' element={<Perfil albums={albums} />}> </Route>
             </Routes>
         </BrowserRouter>
     </>
