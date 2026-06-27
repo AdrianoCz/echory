@@ -37,12 +37,14 @@ body,
 
 nav {
     height: 5.25rem;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: #10100e;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    margin-bottom: 1rem;
+}
+nav a {
+    max-height: fit-content;
 }
 
 main {
@@ -88,7 +90,7 @@ main {
     gap: 1rem;
 }
 
-#albumScreen .genContainer {
+.genContainer {
     display: flex;
     justify-content: flex-start;
     align-items: center;

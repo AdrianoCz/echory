@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home.css'; 
 
 function Home() {
   const [isActive, setIsActive] = useState(false);
   const [isOpen, setIsOpen] = useState(true); 
+  const navigate = useNavigate();
+  const home = () => {navigate('/profile/1')}
 
   return (
     <div className="home-container">
@@ -16,7 +19,7 @@ function Home() {
     
           <div className="form-box login">
             <h2>Welcome</h2>
-            <form action="#">
+            <form onSubmit={home} action="#">
               <div className="input-box">
                 <input type="email" required placeholder=" " />
                 <label>Email address</label>
