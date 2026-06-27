@@ -25,7 +25,7 @@ function App() {
                 </div>
             </nav>
             <Routes>
-                <Route path='/' element={<Home/>}/>
+                <Route path='/login' element={<Home/>}/>
                 <Route path='/album/:albumId' element={<AvaliacaoAlbum albums={albums} />}></Route>
                 <Route path='/profile/:userID' element={<Perfil albums={albums} />}> </Route>
             </Routes>
