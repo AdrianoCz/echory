@@ -88,7 +88,7 @@ main {
     gap: 1rem;
 }
 
-.genContainer {
+#albumScreen .genContainer {
     display: flex;
     justify-content: flex-start;
     align-items: center;

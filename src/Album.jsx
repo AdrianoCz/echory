@@ -107,7 +107,7 @@ function AvaliacaoAlbum({albums}) {
 
 
     return (
-        <main>
+        <main id='albumScreen'>
             <RatingScreen Svg={Svg} album={album} textAreaRef={textArea} setPersonalRating={setPersonalRating} personalRating={personalRating} toggleScreen={toggleScreen} ratingScreen={ratingScreen} showRatingScreen={showRatingScreen} handleRate={handleRate}/>
             <div className='genContainer'>
                 <div className='topHalfContainer'>

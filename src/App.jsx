@@ -5,7 +5,7 @@ import SVG from "./logo.jsx"
 import userIcon from "/user.png"
 import AvaliacaoAlbum from './Album.jsx'
 import Perfil from './Perfil.jsx'
-
+import Home from './Home.jsx'
 
 function App() {
     const Svg = SVG()
@@ -25,6 +25,7 @@ function App() {
                 </div>
             </nav>
             <Routes>
+                <Route path='/' element={<Home/>}/>
                 <Route path='/album/:albumId' element={<AvaliacaoAlbum albums={albums} />}></Route>
                 <Route path='/profile/:userID' element={<Perfil albums={albums} />}> </Route>
             </Routes>
