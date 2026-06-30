@@ -48,6 +48,7 @@
     border-radius: 24px;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
